@@ -120,6 +120,41 @@
           }
         }
       }
+    },
+    "reqres": {
+      "projectType": "library",
+      "root": "projects/reqres",
+      "sourceRoot": "projects/reqres/src",
+      "prefix": "rr",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/reqres/tsconfig.lib.json",
+            "project": "projects/reqres/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/reqres/src/test.ts",
+            "tsConfig": "projects/reqres/tsconfig.spec.json",
+            "karmaConfig": "projects/reqres/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/reqres/tsconfig.lib.json",
+              "projects/reqres/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-library"
 }
